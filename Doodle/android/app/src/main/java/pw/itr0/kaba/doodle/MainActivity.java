@@ -1,4 +1,4 @@
-package com.doodle;
+package pw.itr0.kaba.doodle;
 
 import android.os.Bundle;
 

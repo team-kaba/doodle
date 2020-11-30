@@ -1,4 +1,4 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.doodle">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="pw.itr0.kaba.doodle">
 
   <uses-permission android:name="android.permission.INTERNET"/>
 

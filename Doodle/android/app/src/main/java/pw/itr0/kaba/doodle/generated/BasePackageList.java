@@ -1,4 +1,4 @@
-package com.doodle.generated;
+package pw.itr0.kaba.doodle.generated;
 
 import java.util.Arrays;
 import java.util.List;
