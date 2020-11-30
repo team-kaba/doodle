@@ -1,3 +1,8 @@
+firebase:
+  - firebase/**/*
+  - .firebaserc
+  - firebase.json
+
 build:
   - .editorconfig
 

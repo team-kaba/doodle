@@ -1,0 +1,8 @@
+{
+  "projects": {
+    "default": "doodle-app-dev-293809",
+    "dev": "doodle-app-dev-293809",
+    "stg": "doodle-app-stg-293809",
+    "prod": "doodle-app-prod-293809"
+  }
+}
