@@ -318,7 +318,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "personal.org.name.Doodle.${PERSONAL_IDENTIFIER}";
+				PRODUCT_BUNDLE_IDENTIFIER = "personal.pw.itr0.kaba.doodle.${PERSONAL_IDENTIFIER}";
 				PRODUCT_NAME = Doodle;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -342,7 +342,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.name.Doodle;
+				PRODUCT_BUNDLE_IDENTIFIER = pw.itr0.kaba.doodle;
 				PRODUCT_NAME = Doodle;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -544,7 +544,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.name.Doodle;
+				PRODUCT_BUNDLE_IDENTIFIER = pw.itr0.kaba.doodle;
 				PRODUCT_NAME = Doodle;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
