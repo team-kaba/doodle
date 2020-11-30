@@ -1,0 +1,20 @@
+build:
+  - .editorconfig
+
+# Add 'chore' label to any change within the '.github' directory and to the files listed below
+chore:
+  # Changes to files within '.github/workflows' should correspond to the 'ci' label
+  - any: ['.github/**/*', '!.github/workflows/**/*']
+  - .gitattributes
+  - .gitignore
+  - .tool-version
+  - .idea/**/*
+  - LICENSE
+
+# Add 'ci' label to any change within the '.github/workflows' directory
+ci:
+  - .github/workflows/**/*
+
+# Add 'doc' label to any change within the 'docs' directory
+doc:
+  - README.md
