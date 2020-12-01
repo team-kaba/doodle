@@ -61,7 +61,7 @@
   "jest": {
     "preset": "jest-expo",
     "setupFiles": [
-      "<rootDir>/__setup__/react-navigation.js"
+      "<rootDir>/.jest/__setup__/react-navigation.js"
     ]
   },
   "jest-junit": {
