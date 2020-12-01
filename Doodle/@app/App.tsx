@@ -13,7 +13,7 @@ import {MainNavigator} from '@app/components/MainNavigator';
 // https://reactnavigation.org/docs/modal/
 const RootStack = createNativeStackNavigator();
 
-export default function App() {
+export default () => {
   // 開発中は画面がスリープしないようにしておきます。
   if (__DEV__) {
     activateKeepAwake();
@@ -27,4 +27,4 @@ export default function App() {
       </RootStack.Navigator>
     </NavigationContainer>
   );
-}
+};

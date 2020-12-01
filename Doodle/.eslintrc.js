@@ -2,6 +2,7 @@ module.exports = {
   // https://github.com/expo/expo/tree/master/packages/eslint-config-universe
   extends: ['universe/native'],
   rules: {
+    'func-style': ['error', 'expression'],
     'import/order': [
       'warn',
       {
@@ -12,6 +13,13 @@ module.exports = {
         alphabetize: {
           order: 'asc',
         },
+      },
+    ],
+    'react/function-component-definition': [
+      'error',
+      {
+        namedComponents: 'arrow-function',
+        unnamedComponents: 'arrow-function',
       },
     ],
     'react-hooks/rules-of-hooks': 'error', // Checks rules of Hooks

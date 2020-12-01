@@ -7,10 +7,10 @@ import Doodle from '@app/components/pages/Doodle';
 // アプリでタブの利用する場合は、ここをcreateBottomTabNavigatorに変更してください。
 const Main = createNativeStackNavigator();
 
-export function MainNavigator() {
+export const MainNavigator = () => {
   return (
     <Main.Navigator initialRouteName={Doodle.name}>
       <Main.Screen name={Doodle.name} component={Doodle.component} options={Doodle.options} />
     </Main.Navigator>
   );
-}
+};
