@@ -53,7 +53,9 @@ const Arrow = () => {
 const Doodle = () => {
   const {theme} = useContext(ThemeContext);
   return (
-    <View style={StyleSheet.flatten([StyleSheet.absoluteFillObject, styles.container, {backgroundColor: theme.colors?.primary}])}>
+    <View
+      style={StyleSheet.flatten([StyleSheet.absoluteFillObject, styles.container, {backgroundColor: theme.colors?.primary}])}
+      testID=":screens/home">
       <Arrow />
       <Text h1 style={styles.textColor}>
         Hello, World!
