@@ -1,7 +1,7 @@
 import React from 'react';
 import {createNativeStackNavigator} from 'react-native-screens/native-stack';
 
-import Doodle from './pages/Doodle';
+import Doodle from '@app/components/pages/Doodle';
 
 // テンプレートでは、スタックを利用しています。
 // アプリでタブの利用する場合は、ここをcreateBottomTabNavigatorに変更してください。
