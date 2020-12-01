@@ -25,6 +25,41 @@ module.exports = {
       parserOptions: {
         project: './tsconfig.json',
       },
+      rules: {
+        '@typescript-eslint/naming-convention': [
+          'error',
+          {
+            selector: 'default',
+            format: ['strictCamelCase'],
+          },
+          {
+            selector: 'variable',
+            types: ['function'], // 通常の関数とReact Components
+            format: ['strictCamelCase', 'StrictPascalCase'],
+          },
+          {
+            selector: 'variable',
+            types: ['boolean', 'string', 'number', 'array'],
+            format: ['strictCamelCase'],
+          },
+          {
+            selector: 'variable',
+            format: ['strictCamelCase', 'StrictPascalCase'],
+          },
+          {
+            selector: 'enumMember',
+            format: ['StrictPascalCase'],
+          },
+          {
+            selector: 'memberLike',
+            format: ['strictCamelCase'],
+          },
+          {
+            selector: 'typeLike',
+            format: ['StrictPascalCase'],
+          },
+        ],
+      },
     },
   ],
 };
