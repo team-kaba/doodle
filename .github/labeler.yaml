@@ -6,10 +6,9 @@ iOS:
 Android:
   - Doodle/android/**/*
 
-# Add 'app' label to any change within the 'src' directory and to the files listed below
+# Add 'app' label to any change within the '@app' directory and to the files listed below
 app:
-  - Doodle/src/**/*
-  - Doodle/app.json
+  - Doodle/@app/**/*
   - Doodle/index.js
 
 # Add 'firebase' label to any change to the firebase project files
@@ -20,7 +19,6 @@ firebase:
 
 # Add 'build' label to any changes to the files listed below
 build:
-  - .editorconfig
   - Doodle/.script/**/*
   - Doodle/.eslintrc.js
   - Doodle/.prettierrc.js
@@ -29,16 +27,19 @@ build:
   - Doodle/package.json
   - Doodle/package-lock.json
   - Doodle/tsconfig.json
+  - .editorconfig
 
 # Add 'chore' label to any change within the '.github' directory and to the files listed below
 chore:
   # Changes to files within '.github/workflows' should correspond to the 'ci' label
   - any: ['.github/**/*', '!.github/workflows/**/*']
+  - .idea/**/*
+  - .run/**/*
+  - Doodle/.gitattributes
+  - Doodle/.gitignore
   - .gitattributes
   - .gitignore
   - .tool-version
-  - .idea/**/*
-  - Doodle/.gitignore
   - LICENSE
 
 # Add 'ci' label to any change within the '.github/workflows' directory
@@ -52,7 +53,5 @@ doc:
 
 # Add 'test' label to any change to files within the directories listed below
 test:
-  - Doodle/__mocks__/**/*
-  - Doodle/__setup__/**/*
+  - Doodle/__jest__/**/*
   - Doodle/**/*.spec.*
-  - Doodle/jest.config.js
