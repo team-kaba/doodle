@@ -35,7 +35,7 @@ const Arrow = () => {
       opacity: new Value(1),
       clock: new Clock(),
     }),
-    [],
+    [from],
   );
 
   useCode(() => block([cond(not(clockRunning(clock)), startClock(clock)), set(x, progress(clock, from, to)), set(opacity, progress(clock, 1, 0))]), [
