@@ -64,11 +64,11 @@
   "jest": {
     "preset": "jest-expo",
     "roots": [
-      ".jest",
+      "jest",
       "src"
     ],
     "setupFiles": [
-      "<rootDir>/.jest/__setup__/react-navigation.js"
+      "<rootDir>/jest/__setup__/react-navigation.js"
     ]
   },
   "jest-junit": {
