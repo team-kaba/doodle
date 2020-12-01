@@ -7,7 +7,7 @@ import React from 'react';
 // https://reactnavigation.org/docs/native-stack-navigator/
 import {createNativeStackNavigator} from 'react-native-screens/native-stack';
 
-import {MainNavigator} from '@app/components/MainNavigator';
+import {MainNavigator} from '@app/components';
 
 // モーダル画面などを表示するために、アプリが主として利用するTabNavigatorの前にStackNavigatorを用意しておきます。
 // https://reactnavigation.org/docs/modal/

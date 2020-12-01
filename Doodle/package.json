@@ -53,6 +53,7 @@
     "babel-preset-expo": "^8.3.0",
     "eslint": "^7.10.0",
     "eslint-config-universe": "^6.0.0",
+    "eslint-import-resolver-typescript": "^2.3.0",
     "jest": "^25.5.4",
     "jest-expo": "^39.0.0",
     "jest-junit": "^12.0.0",

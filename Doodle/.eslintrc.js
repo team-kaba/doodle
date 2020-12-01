@@ -1,8 +1,29 @@
 module.exports = {
   // https://github.com/expo/expo/tree/master/packages/eslint-config-universe
   extends: ['universe/native'],
+  settings: {
+    'import/parsers': {
+      '@typescript-eslint/parser': ['.ts', '.tsx'],
+    },
+    'import/resolver': {
+      // TypeScriptのpathsを使ってimportしているモジュールを解決するために設定しています。
+      // eslint-import-resolver-typescript を利用しています。
+      // https://github.com/alexgorbatchev/eslint-import-resolver-typescript
+      typescript: {},
+    },
+  },
   rules: {
     'func-style': ['error', 'expression'],
+    'import/no-cycle': 'error',
+    'import/no-internal-modules': [
+      'error',
+      {
+        // no-internal-modulesは参照先の階層数だけで判断しているので、自分たちで作成したモジュールについて正しく判断できません。
+        // 例えば、':component/atom' は正しい参照方法ですが、エラーとして報告されてしまいます。
+        // これを避けるために、任意のBarrelからのimportを許可しています。
+        allow: ['**/index.{js,jsx,ts,tsx}'],
+      },
+    ],
     'import/order': [
       'warn',
       {
