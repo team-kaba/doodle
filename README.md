@@ -1,6 +1,5 @@
 # Doodle
 
-
 ## License
 
-Except as otherwise noted, the content of this repository is licensed under [CC0 1.0](./LICENSE).
+Except as otherwise noted, the content of this repository is licensed under [CC0 1.0](./LICENSE). Image files including icons are the exception.

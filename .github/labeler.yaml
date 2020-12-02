@@ -1,19 +1,45 @@
+# Add 'iOS' label to any change within the 'ios' directory
+iOS:
+  - Doodle/ios/**/*
+
+# Add 'Android' label to any change within the 'android' directory
+Android:
+  - Doodle/android/**/*
+
+# Add 'app' label to any change within the '@app' directory and to the files listed below
+app:
+  - Doodle/@app/**/*
+  - Doodle/index.js
+
+# Add 'firebase' label to any change to the firebase project files
 firebase:
   - firebase/**/*
   - .firebaserc
   - firebase.json
 
+# Add 'build' label to any changes to the files listed below
 build:
+  - Doodle/.script/**/*
+  - Doodle/.eslintrc.js
+  - Doodle/.prettierrc.js
+  - Doodle/babel.config.js
+  - Doodle/metro.config.js
+  - Doodle/package.json
+  - Doodle/package-lock.json
+  - Doodle/tsconfig.json
   - .editorconfig
 
 # Add 'chore' label to any change within the '.github' directory and to the files listed below
 chore:
   # Changes to files within '.github/workflows' should correspond to the 'ci' label
   - any: ['.github/**/*', '!.github/workflows/**/*']
+  - .idea/**/*
+  - .run/**/*
+  - Doodle/.gitattributes
+  - Doodle/.gitignore
   - .gitattributes
   - .gitignore
   - .tool-version
-  - .idea/**/*
   - LICENSE
 
 # Add 'ci' label to any change within the '.github/workflows' directory
@@ -22,4 +48,10 @@ ci:
 
 # Add 'doc' label to any change within the 'docs' directory
 doc:
+  - docs/**/*
   - README.md
+
+# Add 'test' label to any change to files within the directories listed below
+test:
+  - Doodle/__jest__/**/*
+  - Doodle/**/*.spec.*
