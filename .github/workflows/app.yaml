@@ -77,7 +77,7 @@ jobs:
         with:
           path: Doodle/node_modules
           # If cache is corrupted, increment prefixed number.
-          key: 1-${{ runner.os }}-Doodle-node-modules-${{ hashFiles('**/package-lock.json') }}
+          key: 1-${{ runner.os }}-Doodle-node-modules-${{ hashFiles('Doodle/**/package-lock.json') }}
 
       # node_modulesがキャッシュから復元されなかった場合は、依存ライブラリをインストールします。
       - name: Install dependencies
