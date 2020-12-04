@@ -1,6 +1,4 @@
----
-title: Troubleshooting
----
+# Troubleshooting
 
 ## ビルドキャッシュをリセットする
 
@@ -8,26 +6,27 @@ title: Troubleshooting
 
 たいていの場合はどこかにタイポがあったりして「あぁ、ミスってた〜」となるのですが、本当にどうにも原因がわからないこともあります。
 
-そういった場合にビルドなどのキャッシュをクリアすると何故かうまく動いてしまうこともあるので、このテンプレートでは React Native で開発しているときに生成されるキャッシュなどをすべて削除するスクリプトを用意しています。
+そういった場合にビルドなどのキャッシュをクリアするとうまく動くこともあるので、このテンプレートでは開発中に生成されるキャッシュなどをすべて削除するスクリプトを用意しています。
 
 次のコマンドを実行することで、ビルド時に利用されているキャッシュをすべて削除することが出来ます。なお、このコマンドを実行するとすべてのキャッシュが削除されるため、次回のアプリケーションビルドにかなり時間がかかるようになります。
 
 > **Note**: コマンドを実行する前に、Metro サーバを停止してください。また、Android Studio や Xcode なども終了しおくことをおすすめします。
 
-```
+```bash
 npm run reset-cache
 ```
 
 ## Android アプリのビルドで OutOfMemoryError
 
-Android アプリのビルドで OutOfMemoryError が発生したときは、Gradle が立ち上げる JVM のヒープサイズを増やして対応してください。
+AndroidアプリのビルドでOutOfMemoryErrorが発生したときは、Gradleが立ち上げるJVMのヒープサイズを増やして対応してください。
 
-`android/gradle.properties` の `org.gradle.jvmargsorg.gradle.jvmargs` で設定する `Xmx` や `XX:MaxPermSize` の値を増やすことで解決できるはずです。
+`android/gradle.properties` の `org.gradle.jvmargs` で設定する `Xmx` や `XX:MaxPermSize` の値を増やすことで解決できるはずです。
 
 ## createReleaseExpoManifest でエラーが発生してしまう
 
-Android アプリのビルドの際に、 `:app:createReleaseExpoManifest` で次のようなエラーが発生することがあります。
+Androidアプリのビルドの際に、 `:app:createReleaseExpoManifest` で次のようなエラーが発生し、ビルドに失敗することがあります。
 
+<!-- markdownlint-disable fenced-code-language -->
 ```
 > Task :app:createReleaseExpoManifest FAILED
 internal/modules/cjs/loader.js:968
@@ -43,19 +42,20 @@ Error: Cannot find module '/scripts/createManifest.js'
   requireStack: []
 }
 ```
+<!-- markdownlint-restore -->
 
-以下のような Issue が挙げられているのですが、2020-10-16 時点ではまだ解決方法は回答されていません。
+以下のようなIssueが挙げられているのですが、2020-10-16時点ではまだ解決方法は回答されていません。
 
-- https://github.com/expo/expo/issues/8547
-- https://github.com/expo/expo-cli/issues/2232
+- <https://github.com/expo/expo/issues/8547>
+- <https://github.com/expo/expo-cli/issues/2232>
 
-Issue はクローズされていないのですが、[`node_modules/expo-updates/scripts/create-manifest-android.gradle`](https://github.com/expo/expo/blob/a566b2afecac8b8d922df0046b1eacc16d5757fb/packages/expo-updates/scripts/create-manifest-android.gradle#L13)の、以下の箇所で`expoUpdatesDir`の取得に失敗している可能性があるようです。
+Issueはクローズされていないのですが、[`create-manifest-android.gradle`](https://github.com/expo/expo/blob/a566b2afecac8b8d922df0046b1eacc16d5757fb/packages/expo-updates/scripts/create-manifest-android.gradle#L13)の、以下の箇所で`expoUpdatesDir`の取得に失敗している可能性があります。
 
 ```diff
 def expoUpdatesDir = ["node", "-e", "console.log(require('path').dirname(require.resolve('expo-updates/package.json')));"].execute([], projectDir).text.trim()
 ```
 
-上記の箇所を次のように修正して、どのようなエラーが出ているかを確認することで問題の解決につながるかもしれません。（`node_modules`配下のファイルを修正することで確認できますが、`npm clean-install`などを実行すると修正内容は消えてしまうのであくまで一時的な修正として利用してください。）
+上記の箇所を次のように修正して、どのようなエラーが出ているかを確認してください。`node_modules`配下のファイルを修正しますが、`npm clean-install`などを実行すると修正内容は消えてしまうのであくまで一時的な修正として利用してください。
 
 ```groovy
 def execute = ["node", "-e", "console.log(require('path').dirname(require.resolve('expo-updates/package.json')));"].execute([], projectDir)
@@ -67,7 +67,7 @@ logger.error("stdout: ${out}")
 logger.error("stderr: ${err}")
 ```
 
-ここで、エラーに`unknown command: node. Perhaps you have to reshim?`などのように出力されているようであれば、`node` が見つかっていないと考えられます。環境変数などを確認して、Gradle のプロセスから正しく`node`が利用できるようにする必要があります。
+ここで、エラーに`unknown command: node. Perhaps you have to reshim?`などのように出力されているようであれば、`node` が見つかっていないと考えられます。環境変数などを確認して、Gradleのプロセスから正しく`node`が利用できるようにする必要があります。
 
 > **Note**: Homebrew で Node.js をインストールしている場合は、`node`コマンドが`/usr/local/bin/node`に存在しているかどうかを確認してください。次のようなケースで問題になることがあります。
 >

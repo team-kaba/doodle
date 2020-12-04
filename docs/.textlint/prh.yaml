@@ -1,0 +1,9 @@
+version: 1
+rules:
+  - expected: macOS
+    options:
+      wordBoundary: true
+    patterns:
+      - MacOS
+      - /Mac[\s*]OS(\s+X)?/
+

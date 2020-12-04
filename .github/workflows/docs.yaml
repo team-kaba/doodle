@@ -1,4 +1,4 @@
-name: App
+name: Documents
 
 on:
   push:
@@ -8,30 +8,15 @@ on:
     branches:
       - main
     paths:
-      - 'Doodle/**/*.js'
-      - 'Doodle/**/*.jsx'
-      - 'Doodle/**/*.ts'
-      - 'Doodle/**/*.tsx'
-      - 'Doodle/@app/**'
-      - 'Doodle/__jest__/**'
-      - 'Doodle/.eslintrc.js'
-      - 'Doodle/.prettierrc.js'
-      - 'Doodle/babel.config.js'
-      - 'Doodle/index.js'
-      - 'Doodle/metro.config.js'
-      - 'Doodle/package.json'
-      - 'Doodle/package-lock.json'
-      - 'Doodle/tsconfig.json'
-      - '.editorconfig'
-      - '.github/workflows/app.yaml'
+      - 'docs/**'
     types:
       - opened
       - synchronize
       - reopened
 
 jobs:
-  lint-and-test:
-    name: Run lint and test
+  textlint:
+    name: Run lint
     runs-on: ubuntu-latest
     env:
       REVIEWDOG_GITHUB_API_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
@@ -54,42 +39,29 @@ jobs:
       # If package-lock.json matches, node_modules will also match.
       # So, cache node_modules directly to skip install step.
       - name: Cache node_modules
-        id: cache-node-modules
+        id: cache-textlint-modules
         uses: actions/cache@v2
         with:
-          path: Doodle/node_modules
+          path: docs/.textlint/node_modules
           # If cache is corrupted, increment prefixed number.
-          key: 1-${{ runner.os }}-Doodle-node-modules-${{ hashFiles('Doodle/**/package-lock.json') }}
+          key: 1-${{ runner.os }}-textlint-node-modules-${{ hashFiles('docs/.textlint/package-lock.json') }}
 
       # node_modulesがキャッシュから復元されなかった場合は、依存ライブラリをインストールします。
       - name: Install dependencies
         if: steps.cache-node-modules.outputs.cache-hit != 'true'
-        run: npm clean-install --prefix=Doodle
+        run: npm clean-install --prefix=docs/.textlint
 
       - name: Set up reviewdog
         uses: reviewdog/action-setup@v1
         with:
           reviewdog_version: latest
 
-      - name: Lint (ESLint)
+      - name: Lint (textlint)
         if: always()
         run: |
-          npm run -s lint:es --prefix=Doodle | reviewdog -tee -fail-on-error -reporter=github-pr-review -f=eslint -name="ESLint"
+          npm run -s lint:text --prefix=docs/.textlint | reviewdog -tee -fail-on-error -reporter=github-pr-review -f=eslint -name="textlint"
 
-      - name: Lint (TypeScript)
+      - name: Lint (MarkdownLint)
         if: always()
         run: |
-          npm run -s lint:tsc --prefix=Doodle | reviewdog -tee -fail-on-error -reporter=github-pr-review -f=tsc -name="TypeScript"
-
-      - name: Test
-        if: always()
-        run: |
-          npm run -s test --prefix=Doodle -- --ci --reporters=default --reporters=jest-junit
-
-      - name: Report test result
-        uses: ashley-taylor/junit-report-annotations-action@master
-        if: always()
-        with:
-          access-token: ${{ secrets.GITHUB_TOKEN }}
-          name: Test results
-          path: Doodle/junit.xml
+          npm run -s lint:md --prefix=docs/.textlint | reviewdog -tee -fail-on-error -reporter=github-pr-review -efm="%s:%l:%c %m" -name="markdownlint"
