@@ -1,6 +1,6 @@
 module.exports = {
   // https://github.com/expo/expo/tree/master/packages/eslint-config-universe
-  extends: ['universe/native'],
+  extends: ['universe/native', 'plugin:react-hooks/recommended'],
   settings: {
     'import/parsers': {
       '@typescript-eslint/parser': ['.ts', '.tsx'],
@@ -43,8 +43,6 @@ module.exports = {
         unnamedComponents: 'arrow-function',
       },
     ],
-    'react-hooks/rules-of-hooks': 'error', // Checks rules of Hooks
-    'react-hooks/exhaustive-deps': 'error', // Checks effect dependencies
   },
   overrides: [
     {
@@ -55,6 +53,8 @@ module.exports = {
         project: './tsconfig.json',
       },
       rules: {
+        '@typescript-eslint/consistent-type-definitions': ['error', 'interface'], // Prefer interface if both of interface and type are available
+        '@typescript-eslint/consistent-type-imports': ['error', {prefer: 'type-imports'}],
         '@typescript-eslint/naming-convention': [
           'error',
           {
@@ -63,25 +63,13 @@ module.exports = {
           },
           {
             selector: 'variable',
-            types: ['function'], // 通常の関数とReact Components
-            format: ['strictCamelCase', 'StrictPascalCase'],
-          },
-          {
-            selector: 'variable',
-            types: ['boolean', 'string', 'number', 'array'],
-            format: ['strictCamelCase'],
-          },
-          {
-            selector: 'variable',
+            types: ['function'],
+            // 通常の関数もReact Componentもtypeはfunctionとなるので、strictCamelCaseとStrictPascalCaseの両方を許可しています
             format: ['strictCamelCase', 'StrictPascalCase'],
           },
           {
             selector: 'enumMember',
             format: ['StrictPascalCase'],
-          },
-          {
-            selector: 'memberLike',
-            format: ['strictCamelCase'],
           },
           {
             selector: 'typeLike',

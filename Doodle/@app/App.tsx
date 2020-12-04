@@ -11,7 +11,7 @@ import {MainNavigator} from '@app/components';
 
 // モーダル画面などを表示するために、アプリが主として利用するTabNavigatorの前にStackNavigatorを用意しておきます。
 // https://reactnavigation.org/docs/modal/
-const RootStack = createNativeStackNavigator();
+const root = createNativeStackNavigator();
 
 export default () => {
   // 開発中は画面がスリープしないようにしておきます。
@@ -22,9 +22,9 @@ export default () => {
     <NavigationContainer>
       {/* テンプレートに含まれるサンプルをアプリ内で表示できるように、DrawerNavigatorを用意しています。*/}
       {/* 必要なくなったらScreenを削除し、initialRouteNameをExampleからMainに変更してください。 */}
-      <RootStack.Navigator screenOptions={{headerShown: false}} initialRouteName="Main">
-        <RootStack.Screen name="Main" component={MainNavigator} />
-      </RootStack.Navigator>
+      <root.Navigator screenOptions={{headerShown: false}} initialRouteName="Main">
+        <root.Screen name="Main" component={MainNavigator} />
+      </root.Navigator>
     </NavigationContainer>
   );
 };
