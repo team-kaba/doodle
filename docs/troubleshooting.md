@@ -1,6 +1,4 @@
----
-title: Troubleshooting
----
+# Troubleshooting
 
 ## ビルドキャッシュをリセットする
 
@@ -22,7 +20,7 @@ npm run reset-cache
 
 Android アプリのビルドで OutOfMemoryError が発生したときは、Gradle が立ち上げる JVM のヒープサイズを増やして対応してください。
 
-`android/gradle.properties` の `org.gradle.jvmargsorg.gradle.jvmargs` で設定する `Xmx` や `XX:MaxPermSize` の値を増やすことで解決できるはずです。
+`android/gradle.properties` の `org.gradle.jvmargs` で設定する `Xmx` や `XX:MaxPermSize` の値を増やすことで解決できるはずです。
 
 ## createReleaseExpoManifest でエラーが発生してしまう
 
