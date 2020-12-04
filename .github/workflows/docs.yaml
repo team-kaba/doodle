@@ -3,19 +3,16 @@ name: Documents
 on:
   push:
     branches:
-      - master
-    paths:
-      - 'docs/**'
+      - main
   pull_request:
     branches:
-      - master
+      - main
     paths:
       - 'docs/**'
     types:
       - opened
       - synchronize
       - reopened
-      - ready_for_review
 
 jobs:
   textlint:
