@@ -72,14 +72,17 @@ jobs:
           reviewdog_version: latest
 
       - name: Lint (ESLint)
+        if: always()
         run: |
           npm run -s lint:es --prefix=Doodle | reviewdog -tee -fail-on-error -reporter=github-pr-review -f=eslint -name="ESLint"
 
       - name: Lint (TypeScript)
+        if: always()
         run: |
           npm run -s lint:tsc --prefix=Doodle | reviewdog -tee -fail-on-error -reporter=github-pr-review -f=tsc -name="TypeScript"
 
       - name: Test
+        if: always()
         run: |
           npm run -s test --prefix=Doodle -- --ci --reporters=default --reporters=jest-junit
 
