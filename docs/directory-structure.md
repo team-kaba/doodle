@@ -40,6 +40,7 @@ Reactのコンポーネント（VIPERのView）とPresenter, Routerを格納し�
 
 > Note: `App.tsx`以外のすべての JSX を含むファイル（拡張子が`.jsx`または`.tsx`のファイル）は、`component`もしくは`context`配下に格納されることに注意してください。
 
+<!-- markdownlint-disable fenced-code-language -->
 ```
 src/
   ├─ adapter/
@@ -80,6 +81,7 @@ src/
   │  └─ ...
   └─ App.tsx
 ```
+<!-- markdownlint-restore -->
 
 ## `component`内の構成
 
@@ -111,6 +113,7 @@ React (React Native)ではコンポーネントとは、Reactを利用して作�
   - `iconography.ts`: 利用するアイコンの定義
   - `attributes.ts`: 影やグラデーション、ボーダー、角丸などの定義
 
+<!-- markdownlint-disable fenced-code-language -->
 ```
 component/
   ├─ _styleguide/
@@ -125,6 +128,7 @@ component/
   ├─ organism/
   └─ template/
 ```
+<!-- markdownlint-restore -->
 
 ## `screen`内の構成
 
@@ -137,6 +141,7 @@ component/
 
 RouterはReact NavigationのNavigatorに対応するものとして扱います。
 
+<!-- markdownlint-disable fenced-code-language -->
 ```
 screen/
   ├─ screen1/
@@ -155,6 +160,7 @@ screen/
   │  └─ Navigator.tsx
   └─ MainNavigator.tsx
 ```
+<!-- markdownlint-restore -->
 
 ## VIPER について
 

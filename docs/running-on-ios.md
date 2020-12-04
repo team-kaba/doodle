@@ -5,9 +5,11 @@
 アプリをiOSのデバイスにインストールするには、次の設定が必要です。
 
 1. Apple ID設定用のファイルを用意
-   ```
+
+   ```bash
    cp ios/PersonalAccount.xcconfig.template ios/PersonalAccount.xcconfig
    ```
+
 2. `ios/PersonalAccount.xcconfig`にApple IDの設定を追加
    * `CODE_SIGN_STYLE` は `Automatic` に設定
    * `PERSONAL_IDENTIFIER` は他の人と重複しない値に設定（Bundle Identifierのサフィックスとして利用されます）
@@ -17,14 +19,14 @@
 
 ### 事前準備
 
-- 前述の「Apple IDの設定」を実施
-- [ios-deploy](https://github.com/ios-control/ios-deploy)をインストール（`brew install ios-deploy`, `npm i -g ios-deploy`などのコマンドでインストールできます）
-- Xcodeで、`ios`フォルダを開く（アプリのルートフォルダ配下で`xed -b ios`を実行すると開けます）
-- プロジェクトの`Signing & Capabilities` > `Debug`を開いて、 Singingでエラーが出ていないことを確認する
+* 前述の「Apple IDの設定」を実施
+* [ios-deploy](https://github.com/ios-control/ios-deploy)をインストール（`brew install ios-deploy`, `npm i -g ios-deploy`などのコマンドでインストールできます）
+* Xcodeで、`ios`フォルダを開く（アプリのルートフォルダ配下で`xed -b ios`を実行すると開けます）
+* プロジェクトの`Signing & Capabilities` > `Debug`を開いて、 Singingでエラーが出ていないことを確認する
 
 ### 手順
 
-- macOS端末にインストール先のデバイスをUSBで接続する
-- 接続時にiPhone側でデバイスを信頼するか聞かれるので「信頼する」を選択
-- `npm run ios -- --device '<デバイス名>'`を実行
-- 上記のかわりに `npm run ios -- --udid <device udid>`でも可
+* macOS端末にインストール先のデバイスをUSBで接続する
+* 接続時にiPhone側でデバイスを信頼するか聞かれるので「信頼する」を選択
+* `npm run ios -- --device '<デバイス名>'`を実行
+* 上記のかわりに `npm run ios -- --udid <device udid>`でも可

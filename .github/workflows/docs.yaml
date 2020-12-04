@@ -61,4 +61,8 @@ jobs:
 
       - name: Lint (textlint)
         run: |
-          npm run -s lint --prefix=docs/.textlint | reviewdog -tee -fail-on-error -reporter=github-pr-review -f=eslint -name="textlint"
+          npm run -s lint:text --prefix=docs/.textlint | reviewdog -tee -fail-on-error -reporter=github-pr-review -f=eslint -name="textlint"
+
+      - name: Lint (MarkdownLint)
+        run: |
+          npm run -s lint:md --prefix=docs/.textlint | reviewdog -tee -fail-on-error -reporter=github-pr-review -efm="%s:%l:%c %m" -name="markdownlint"

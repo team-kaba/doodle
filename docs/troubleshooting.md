@@ -12,7 +12,7 @@
 
 > **Note**: コマンドを実行する前に、Metro サーバを停止してください。また、Android Studio や Xcode なども終了しおくことをおすすめします。
 
-```
+```bash
 npm run reset-cache
 ```
 
@@ -26,6 +26,7 @@ AndroidアプリのビルドでOutOfMemoryErrorが発生したときは、Gradle
 
 Androidアプリのビルドの際に、 `:app:createReleaseExpoManifest` で次のようなエラーが発生し、ビルドに失敗することがあります。
 
+<!-- markdownlint-disable fenced-code-language -->
 ```
 > Task :app:createReleaseExpoManifest FAILED
 internal/modules/cjs/loader.js:968
@@ -41,11 +42,12 @@ Error: Cannot find module '/scripts/createManifest.js'
   requireStack: []
 }
 ```
+<!-- markdownlint-restore -->
 
 以下のようなIssueが挙げられているのですが、2020-10-16時点ではまだ解決方法は回答されていません。
 
-- https://github.com/expo/expo/issues/8547
-- https://github.com/expo/expo-cli/issues/2232
+- <https://github.com/expo/expo/issues/8547>
+- <https://github.com/expo/expo-cli/issues/2232>
 
 Issueはクローズされていないのですが、[`create-manifest-android.gradle`](https://github.com/expo/expo/blob/a566b2afecac8b8d922df0046b1eacc16d5757fb/packages/expo-updates/scripts/create-manifest-android.gradle#L13)の、以下の箇所で`expoUpdatesDir`の取得に失敗している可能性があります。
 
