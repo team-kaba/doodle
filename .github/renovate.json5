@@ -11,9 +11,8 @@
   dependencyDashboardAutoclose: true,
   draftPR: true,
   ignorePaths: [
-    // Renovate & GitHub actions are not working as expected.
-    // https://github.com/renovatebot/renovate/issues/6890
-    './.github/',
+    'Doodle/android',
+    'Doodle/ios'
   ],
   packageRules: [
     {
