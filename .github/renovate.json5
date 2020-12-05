@@ -1,0 +1,56 @@
+{
+  labels: ['deps'],
+  commitMessagePrefix: '⬆️: ',
+  extends: ['config:base'],
+  timezone: 'Asia/Tokyo',
+  draftPR: true,
+  packageRules: [
+    {
+      groupName: 'Expo managed',
+      enabled: false,
+      packageNames: [
+        '@react-native-community/masked-view',
+        '@types/react',
+        '@types/react-native',
+        'babel-preset-expo',
+        'expo',
+        'expo-splash-screen',
+        'expo-updates',
+        'jest-expo',
+        'react',
+        'react-dom',
+        'react-native',
+        'react-native-gesture-handler',
+        'react-native-reanimated',
+        'react-native-safe-area-context',
+        'react-native-screens',
+        'react-native-unimodules',
+        'react-native-web',
+        'typescript',
+      ],
+      packagePatterns: ['^expo-', '@expo/'],
+    },
+    {
+      groupName: 'Depends on Expo version',
+      enabled: false,
+      packageNames: [
+        '@babel/core',
+        '@types/jest',
+        '@types/react-dom',
+        '@types/react-test-renderer',
+        '@typescript-eslint/eslint-plugin',
+        '@typescript-eslint/parser',
+        'ts-jest',
+      ],
+    },
+    {
+      groupName: 'React Navigation',
+      packagePatterns: ['^@react-navigation/'],
+    },
+    {
+      packageNames: ['@testing-library/react-native', 'eslint', 'eslint-config-universe', 'npm-run-all', 'prettier'],
+      automerge: true,
+      draftPR: false
+    },
+  ],
+}

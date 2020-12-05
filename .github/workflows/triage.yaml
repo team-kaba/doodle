@@ -19,4 +19,4 @@ jobs:
           # Default is '.github/labeler.yml', but we use 'yaml' as an extension of YAML files.
           configuration-path: '.github/labeler.yaml'
           # Remove labels when matching files are reverted or no longer changed by the PR
-          sync-labels: true
+          sync-labels: false
