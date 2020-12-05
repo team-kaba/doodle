@@ -3,10 +3,16 @@
   commitMessagePrefix: '⬆️: ',
   extends: ['config:base'],
   timezone: 'Asia/Tokyo',
+  lockFileMaintenance: {
+    enabled: true,
+    schedule: ['before 14am on sunday'],
+  },
+  dependencyDashboard: true,
+  dependencyDashboardAutoclose: true,
   draftPR: true,
   packageRules: [
     {
-      groupName: 'Expo managed',
+      groupName: 'Expo upgrade',
       enabled: false,
       packageNames: [
         '@react-native-community/masked-view',
@@ -28,19 +34,18 @@
         'react-native-web',
         'typescript',
       ],
-      packagePatterns: ['^expo-', '@expo/'],
+      packagePatterns: ['^expo-', '^@expo/'],
     },
     {
       groupName: 'Depends on Expo version',
       enabled: false,
       packageNames: [
-        '@babel/core',
-        '@types/jest',
-        '@types/react-dom',
-        '@types/react-test-renderer',
-        '@typescript-eslint/eslint-plugin',
-        '@typescript-eslint/parser',
-        'ts-jest',
+        '@babel/core', // `npm ls @babel/core`
+        '@types/jest', // jest-expo -> jest
+        '@types/react-dom', // react-dom
+        '@types/react-test-renderer', // jest-expo -> react-test-renderer
+        'jest', // jest-expo -> jest (use same)
+        'ts-jest', // jest-expo -> jest
       ],
     },
     {
@@ -48,9 +53,19 @@
       packagePatterns: ['^@react-navigation/'],
     },
     {
-      packageNames: ['@testing-library/react-native', 'eslint', 'eslint-config-universe', 'npm-run-all', 'prettier'],
-      automerge: true,
-      draftPR: false
+      packageNames: [
+        '@testing-library/react-native',
+        '@typescript-eslint/eslint-plugin',
+        '@typescript-eslint/parser',
+        'eslint',
+        'eslint-config-universe',
+        'eslint-import-resolver-typescript',
+        'jest-junit',
+        'npm-run-all',
+        'prettier',
+      ],
+      schedule: ['before 13am on sunday'],
+      draftPR: false,
     },
   ],
 }
