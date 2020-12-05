@@ -68,6 +68,17 @@ module.exports = {
             format: ['strictCamelCase', 'StrictPascalCase'],
           },
           {
+            // Allow 'Nominal Typing'
+            // https://typescript-jp.gitbook.io/deep-dive/main-1/nominaltyping
+            selector: 'memberLike',
+            filter: {
+              regex: '^_(brand|.*Brand)$',
+              match: true,
+            },
+            format: ['strictCamelCase'],
+            leadingUnderscore: 'allow',
+          },
+          {
             selector: 'enumMember',
             format: ['StrictPascalCase'],
           },
