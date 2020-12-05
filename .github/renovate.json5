@@ -5,7 +5,7 @@
   timezone: 'Asia/Tokyo',
   lockFileMaintenance: {
     enabled: true,
-    schedule: ['before 14am on sunday'],
+    schedule: ['before 15:15 on sunday'],
   },
   dependencyDashboard: true,
   dependencyDashboardAutoclose: true,
@@ -70,7 +70,7 @@
         'prettier',
       ],
       packagePatterns: ['^markdownlint', '^textlint'],
-      schedule: ['before 13am on sunday'],
+      schedule: ['before 15:00 on sunday'],
       draftPR: false,
     },
   ],
