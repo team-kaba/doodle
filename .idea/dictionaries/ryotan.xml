@@ -4,9 +4,11 @@
       <w>adoptopenjdk</w>
       <w>automerge</w>
       <w>gitattributes</w>
+      <w>markdownlint</w>
       <w>mergeable</w>
       <w>pascalgn</w>
       <w>probot</w>
+      <w>textlint</w>
       <w>unimodules</w>
     </words>
   </dictionary>
