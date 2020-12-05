@@ -1,7 +1,7 @@
 {
   labels: ['deps'],
   commitMessagePrefix: '⬆️: ',
-  extends: ['config:base'],
+  extends: ['config:base', ':preserveSemverRanges'],
   timezone: 'Asia/Tokyo',
   lockFileMaintenance: {
     enabled: true,
