@@ -10,15 +10,11 @@
   dependencyDashboard: true,
   dependencyDashboardAutoclose: true,
   draftPR: true,
-  ignorePaths: [
-    'Doodle/android',
-    'Doodle/ios'
-  ],
   packageRules: [
     {
       groupName: 'Expo upgrade',
       enabled: false,
-      packageNames: [
+      matchPackageNames: [
         '@react-native-community/masked-view',
         '@types/react',
         '@types/react-native',
@@ -38,12 +34,11 @@
         'react-native-web',
         'typescript',
       ],
-      packagePatterns: ['^expo-', '^@expo/'],
     },
     {
       groupName: 'Depends on Expo version',
       enabled: false,
-      packageNames: [
+      matchPackageNames: [
         '@babel/core', // `npm ls @babel/core`
         '@types/jest', // jest-expo -> jest
         '@types/react-dom', // react-dom
@@ -54,10 +49,10 @@
     },
     {
       groupName: 'React Navigation',
-      packagePatterns: ['^@react-navigation/'],
+      matchPackagePrefixes: ['^@react-navigation/'],
     },
     {
-      packageNames: [
+      matchPackageNames: [
         '@testing-library/react-native',
         '@typescript-eslint/eslint-plugin',
         '@typescript-eslint/parser',
@@ -68,7 +63,7 @@
         'npm-run-all',
         'prettier',
       ],
-      packagePatterns: ['^markdownlint', '^textlint'],
+      matchPackagePrefixes: ['^markdownlint', '^textlint'],
       draftPR: false,
     },
   ],
