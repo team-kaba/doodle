@@ -49,7 +49,7 @@
     },
     {
       groupName: 'React Navigation',
-      matchPackagePrefixes: ['^@react-navigation/'],
+      matchPackagePrefixes: ['@react-navigation/'],
     },
     {
       matchPackageNames: [
@@ -63,7 +63,7 @@
         'npm-run-all',
         'prettier',
       ],
-      matchPackagePrefixes: ['^markdownlint', '^textlint'],
+      matchPackagePrefixes: ['markdownlint', 'textlint'],
       draftPR: false,
     },
   ],
