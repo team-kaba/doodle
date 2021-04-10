@@ -33,6 +33,7 @@
         'react-native-unimodules',
         'react-native-web',
         'typescript',
+        'gradle',
       ],
     },
     {
