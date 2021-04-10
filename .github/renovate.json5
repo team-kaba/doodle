@@ -53,6 +53,7 @@
       matchPackagePrefixes: ['@react-navigation/'],
     },
     {
+      groupName: 'Tools',
       matchPackageNames: [
         '@testing-library/react-native',
         '@typescript-eslint/eslint-plugin',
